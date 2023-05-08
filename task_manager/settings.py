@@ -18,7 +18,7 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     '0.0.0.0',
     'webserver',
-    'python-project-52-production-fc16.up.railway.app',
+    'web-production-fc16.up.railway.app',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
