@@ -21,6 +21,10 @@ ALLOWED_HOSTS = [
     'web-production-fc16.up.railway.app',
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://*.railway.app',
+]
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
