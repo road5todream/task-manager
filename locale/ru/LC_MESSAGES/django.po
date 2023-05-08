@@ -289,3 +289,5 @@ msgstr "Имя пользователя"
 #: task_manager/templates/users/users_list.html:23
 msgid "Fullname"
 msgstr "Полное имя"
+
+#, fuzzy
