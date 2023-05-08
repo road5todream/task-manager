@@ -251,7 +251,7 @@ msgstr "Изменить"
 
 #: task_manager/templates/login.html:34
 msgid "Log on"
-msgstr "Войти"
+msgstr "Вход"
 
 #: task_manager/templates/tasks/tasks_list.html:9
 msgid "Create task"
