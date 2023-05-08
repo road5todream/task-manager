@@ -3,16 +3,16 @@
   "model": "labels.labels",
   "pk": 1,
   "fields": {
-    "name": "qwefqwf",
-    "created_at": "2022-11-22T15:28:11.645Z"
+    "name": "dadsf",
+    "created_at": "2023-01-26T12:01:12.661Z"
   }
 },
 {
   "model": "labels.labels",
   "pk": 2,
   "fields": {
-    "name": "new label 2",
-    "created_at": "2022-11-22T15:28:17.405Z"
+    "name": "sdfsfds",
+    "created_at": "2022-12-10T12:12:12.413Z"
   }
 },
 {
@@ -20,7 +20,7 @@
   "pk": 11,
   "fields": {
     "name": "wqf",
-    "created_at": "2022-11-25T18:27:04.049Z"
+    "created_at": "2022-11-26T21:24:15.134Z"
   }
 }
 ]

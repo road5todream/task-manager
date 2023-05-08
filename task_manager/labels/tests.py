@@ -41,9 +41,8 @@ class CrudLabelsTestCase(TestCase):
         url = reverse('update_label', args=[2])
         request = self.client.post(url, self.data_for_form)
         self.assertRedirects(request, self.login)
-        self.assertTrue(
-            Labels.objects.get(pk=2).name == 'new label 2'
-        )
+        self.assertEqual(
+            Labels.objects.get(pk=2).name, 'sdfsfds')
 
     def test_delete_if_no_auth(self):
         url = reverse('delete_label', args=[11])
