@@ -13,21 +13,17 @@ from django.views.generic import CreateView, DeleteView, UpdateView, \
 from django.contrib.messages.views import SuccessMessageMixin
 
 
-class TasksFilterView(PermissionMixin,
-                      LoginRequiredMixin,
-                      FilterView,
-                      ):
+class TasksFilterView(PermissionMixin, LoginRequiredMixin,
+                      FilterView,):
+
     model = Tasks
     template_name = 'tasks/tasks_list.html'
     filterset_class = TaskFilter
     context_object_name = 'tasks'
 
 
-class CreateTaskView(PermissionMixin,
-                     LoginRequiredMixin,
-                     SuccessMessageMixin,
-                     CreateView,
-                     ):
+class CreateTaskView(PermissionMixin, LoginRequiredMixin,
+                     SuccessMessageMixin, CreateView):
 
     model = Tasks
     form_class = CreateTaskForm
@@ -42,9 +38,7 @@ class CreateTaskView(PermissionMixin,
 
 
 class TaskView(PermissionMixin,
-               LoginRequiredMixin,
-               DetailView,
-               ):
+               LoginRequiredMixin, DetailView):
     model = Tasks
     template_name = 'tasks/view_task.html'
     context_object_name = 'task'
@@ -54,11 +48,9 @@ class TaskView(PermissionMixin,
         return context
 
 
-class UpdateTaskView(PermissionMixin,
-                     LoginRequiredMixin,
-                     SuccessMessageMixin,
-                     UpdateView,
-                     ):
+class UpdateTaskView(PermissionMixin, LoginRequiredMixin,
+                     SuccessMessageMixin, UpdateView):
+
     model = Tasks
     form_class = CreateTaskForm
     template_name = 'tasks/update_task.html'
@@ -66,11 +58,9 @@ class UpdateTaskView(PermissionMixin,
     success_message = FlashMessages.TASK_SUCCESSFULLY_CHANGED.value
 
 
-class DeleteTaskView(LoginRequiredMixin,
-                     UserPassesTestMixin,
-                     SuccessMessageMixin,
-                     DeleteView,
-                     ):
+class DeleteTaskView(LoginRequiredMixin, UserPassesTestMixin,
+                     SuccessMessageMixin, DeleteView):
+
     model = Tasks
     success_url = reverse_lazy('tasks')
     success_message = FlashMessages.TASK_SUCCESSFULLY_DELETE.value
@@ -83,11 +73,9 @@ class DeleteTaskView(LoginRequiredMixin,
     def handle_no_permission(self):
         if self.request.user.is_authenticated:
             messages.error(
-                self.request, FlashMessages.NO_PERMIT_TO_DELETE_TASK.value
-            )
+                self.request, FlashMessages.NO_PERMIT_TO_DELETE_TASK.value)
             return redirect(self.success_url)
         else:
             messages.error(
-                self.request, FlashMessages.NO_AUTHENTICATION.value,
-            )
+                self.request, FlashMessages.NO_AUTHENTICATION.value,)
             return redirect('login')

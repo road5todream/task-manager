@@ -49,7 +49,8 @@ class CrudUsersTestCase(TestCase):
         url_path = reverse('update_user', args=[3])
         self.client.force_login(self.user3)
         response = self.client.get(url_path, follow=True)
-        self.assertEqual(str(response.context['user'].username), 'road5todream')
+        self.assertEqual(str(response.context['user'].username),
+                         'road5todream')
         self.assertEqual(response.status_code, self.success_code)
         post_request = self.client.post(url_path, self.data_for_form)
         self.assertRedirects(post_request, self.users)

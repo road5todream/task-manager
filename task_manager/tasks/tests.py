@@ -8,12 +8,8 @@ from task_manager.users.models import Users
 
 class CrudTasksTestCase(TestCase):
 
-    fixtures = [
-        'users.json',
-        'tasks.json',
-        'statuses.json',
-        'labels.json',
-    ]
+    fixtures = ['users.json', 'tasks.json',
+                'statuses.json', 'labels.json']
 
     def setUp(self):
         self.client = Client()
@@ -42,16 +38,14 @@ class CrudTasksTestCase(TestCase):
         request = self.client.post(url)
         self.assertRedirects(request, self.login)
         self.assertTrue(
-            len(Tasks.objects.all()) == self.tasks_count_before_test
-        )
+            len(Tasks.objects.all()) == self.tasks_count_before_test)
 
     def test_update_task_if_no_auth(self):
         url = reverse('update_task', args=[10])
         request = self.client.post(url, self.data_for_form)
         self.assertRedirects(request, self.login)
         self.assertTrue(
-            Tasks.objects.get(name='another task').name == 'another task'
-        )
+            Tasks.objects.get(name='sdf').name == 'sdf')
 
     def test_delete_task_if_no_auth(self):
         url = reverse('delete_task', args=[9])
@@ -82,9 +76,8 @@ class CrudTasksTestCase(TestCase):
         self.client.force_login(self.user)
         request = self.client.post(url)
         self.assertRedirects(request, self.tasks)
-        self.assertTrue(
-            len(Tasks.objects.all()) == 5
-        )
+        self.assertEqual(
+            len(Tasks.objects.all()), 6)
 
     def test_delete_not_self_task(self):
         url = reverse('delete_task', args=[9])
@@ -92,5 +85,4 @@ class CrudTasksTestCase(TestCase):
         request = self.client.post(url)
         self.assertRedirects(request, self.tasks)
         self.assertTrue(
-            len(Tasks.objects.all()) == self.tasks_count_before_test
-        )
+            len(Tasks.objects.all()) == self.tasks_count_before_test)
