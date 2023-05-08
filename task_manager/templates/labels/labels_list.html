@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<br>
+<h2>{% trans 'Labels' %}</h2>
+<a href="{% url 'create_label' %}" class="btn btn-outline-success">{% trans 'Create label' %}</a>
+<br>
+<br>
+{% for msg in messages %}
+{% if msg.tags == 'success' %}
+<div class="alert alert-success" role="alert">
+      {{ msg }}
+      </div>
+{% else %}
+<div class="alert alert-danger" role="alert">
+      {{ msg }}
+      </div>
+{% endif %}
+{% endfor %}
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">{% trans 'Name' %}</th>
+      <th scope="col">{% trans 'Creation date' %}</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  {% for label in object_list %}
+  <tbody>
+    <tr>
+      <th scope="row">{{ label.id }}</th>
+      <td>{{ label.name }}</td>
+      <td>{{ label.created_at }}</td>
+      <td>
+      <a href="{% url 'update_label' pk=label.id %}" class="btn btn-outline-success">{% trans 'Change' %}</a>
+      <a href="{% url 'delete_label' pk=label.id %}" class="btn btn-outline-success">{% trans 'Delete' %}</a>
+      </td>
+    </tr>
+  </tbody>
+  {% endfor %}
+  </table>
+{% endblock %}

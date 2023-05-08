@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load bootstrap4 %}
+
+{% block content %}
+<br>
+<div class="container col-10">
+<h2>{% trans 'Tasks' %}</h2>
+    <a href="{% url 'create_task' %}" class="btn btn-outline-success">{% trans 'Create task' %}</a>
+
+  {% for msg in messages %}
+{% if msg.tags == 'success' %}
+<div class="alert alert-success" role="alert">
+      {{ msg }}
+      </div>
+{% else %}
+<div class="alert alert-danger" role="alert">
+      {{ msg }}
+      </div>
+{% endif %}
+{% endfor %}
+<form method="get">
+        {% bootstrap_form filter.form %}
+      <br>
+    <button type="submit" class="btn btn-outline-success">{% trans 'Show' %}</button>
+    </form>
+</div>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">{% trans 'Name' %}</th>
+      <th scope="col">{% trans 'Status' %}</th>
+      <th scope="col">{% trans 'Author' %}</th>
+      <th scope="col">{% trans 'Executor' %}</th>
+      <th scope="col">{% trans 'Creation date' %}</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  {% for task in object_list %}
+  <tbody>
+    <tr>
+      <th scope="row">{{ task.pk }}</th>
+      <td><a href="{% url 'view_task' pk=task.id %}">{{ task.name }}</a></td>
+      <td>{{ task.status.name }}</td>
+      <td>{{ task.creator.first_name }} {{ task.creator.last_name }}</td>
+      <td>{{ task.executor }}</td>
+      <td>{{ task.created_at|date:'d.m.Y h:i' }}</td>
+      <td>
+      <a href="{% url 'update_task' pk=task.id %}" class="btn btn-outline-success">{% trans 'Change' %}</a>
+
+      <a href="{% url 'delete_task' pk=task.id %}" class="btn btn-outline-success">{% trans 'Delete' %}</a>
+
+      </td>
+    </tr>
+  </tbody>
+  {% endfor %}
+</table>
+{% endblock %}

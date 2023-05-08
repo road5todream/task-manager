@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load bootstrap4 %}
+
+
+{% block content %}
+<br>
+<h2>{% trans 'Task view' %}</h2>
+<br>
+<div class="jumbotron">
+
+  <h1 class="display-4">{{ task.name }}</h1>
+  <p class="lead">{{ task.description }}</p>
+  <hr class="my-4">
+  <p>{% trans 'Author' %}: {{ task.creator.first_name }} {{ task.creator.last_name }}</p>
+  <p>{% trans 'Executor' %}: {{ task.executor }}</p>
+  <p>{% trans 'Status' %}: {{ task.status.name }}</p>
+  <p>{% trans 'Creation date' %}: {{ task.created_at|date:'d.m.Y h:m' }} </p>
+  <p>{% trans 'Labels' %}:
+  {% for label in task.labels.all %}
+    <ul>
+
+  <li>{{ label.name }}</li>
+  </ul>
+  </p>
+  {% endfor %}
+  <a href="{% url 'update_task' pk=task.id %}" class="btn btn-outline-success">{% trans 'Change' %}</a>
+  <a href="{% url 'delete_task' pk=task.id %}" class="btn btn-outline-success">{% trans 'Delete' %}</a>
+
+</div>
+{% endblock %}
+

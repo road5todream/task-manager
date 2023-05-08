@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load bootstrap4 %}
+
+{% block content %}
+<form method="POST">
+  <br>
+  <div class="container wrapper flex-grow-1">
+      {% for er in errors %}
+      {{ er }}
+      {% endfor %}
+      {% for msg in messages %}
+      {% if msg.tags == 'success' %}
+        <div class="alert alert-success" role="alert">
+            {{ msg }}
+        </div>
+      {% else %}
+       <div class="alert alert-danger" role="alert">
+            {{ msg }}
+        </div>
+      {% endif %}
+      {% endfor %}
+      {% if error_messages %}
+
+      <div class="alert alert-danger" role="alert">
+            {{ error_messages }}
+         </div>
+      {% endif %}
+      <h1>{% trans 'Login' %}</h1>
+      <br>
+  <div class="mb-3">
+      {% csrf_token %}
+    {% bootstrap_form form %}
+  <button type="submit" class="btn btn-outline-success">{% trans 'Log on' %}</button>
+  </div>
+  </div>
+</form>
+
+{% endblock %}

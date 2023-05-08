@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<br>
+<h2>{% trans 'Statuses' %}</h2>
+<a href="{% url 'create_status' %}" class="btn btn-outline-success">{% trans 'Create status' %}</a>
+<br>
+<br>
+{% for msg in messages %}
+{% if msg.tags == 'success' %}
+<div class="alert alert-success" role="alert">
+      {{ msg }}
+      </div>
+{% else %}
+<div class="alert alert-danger" role="alert">
+      {{ msg }}
+      </div>
+{% endif %}
+{% endfor %}
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Creation date</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  {% for status in object_list %}
+  <tbody>
+    <tr>
+      <th scope="row">{{ status.id }}</th>
+      <td>{{ status.name }}</td>
+      <td>{{ status.created_at }}</td>
+      <td>
+      <a href="{% url 'update_status' pk=status.id %}" class="btn btn-outline-success">{% trans 'Change' %}</a>
+      <a href="{% url 'delete_status' pk=status.id %}" class="btn btn-outline-success">{% trans 'Delete' %}</a>
+      </td>
+    </tr>
+  </tbody>
+  {% endfor %}
+  </table>
+{% endblock %}

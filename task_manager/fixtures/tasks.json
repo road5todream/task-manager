@@ -1,0 +1,146 @@
+[
+{
+  "model": "tasks.tasks",
+  "pk": 5,
+  "fields": {
+    "name": "qwfeq",
+    "description": "wqfewf",
+    "creator": 4,
+    "status": 1,
+    "executor": 1,
+    "created_at": "2022-11-24T18:25:31.113Z"
+  }
+},
+{
+  "model": "tasks.tasks",
+  "pk": 9,
+  "fields": {
+    "name": "first",
+    "description": "new dscr",
+    "creator": 3,
+    "status": 8,
+    "executor": 4,
+    "created_at": "2022-11-26T17:17:24.777Z"
+  }
+},
+{
+  "model": "tasks.tasks",
+  "pk": 10,
+  "fields": {
+    "name": "another task",
+    "description": "its task for test dump data",
+    "creator": 3,
+    "status": 1,
+    "executor": 2,
+    "created_at": "2022-11-26T17:17:52.413Z"
+  }
+},
+{
+  "model": "tasks.tasks",
+  "pk": 11,
+  "fields": {
+    "name": "wef",
+    "description": "qwf",
+    "creator": 3,
+    "status": 1,
+    "executor": 17,
+    "created_at": "2022-11-26T21:24:15.134Z"
+  }
+},
+{
+  "model": "tasks.tasks",
+  "pk": 12,
+  "fields": {
+    "name": "wqf",
+    "description": "wqfe",
+    "creator": 3,
+    "status": 8,
+    "executor": 2,
+    "created_at": "2022-11-26T23:47:11.034Z"
+  }
+},
+{
+  "model": "tasks.tasks",
+  "pk": 14,
+  "fields": {
+    "name": "wqef",
+    "description": "qwef",
+    "creator": 3,
+    "status": 1,
+    "executor": 3,
+    "created_at": "2022-11-27T16:21:44.459Z"
+  }
+},
+{
+  "model": "tasks.tasklabelrelation",
+  "pk": 11,
+  "fields": {
+    "task": 5,
+    "label": 2
+  }
+},
+{
+  "model": "tasks.tasklabelrelation",
+  "pk": 15,
+  "fields": {
+    "task": 9,
+    "label": 1
+  }
+},
+{
+  "model": "tasks.tasklabelrelation",
+  "pk": 16,
+  "fields": {
+    "task": 9,
+    "label": 2
+  }
+},
+{
+  "model": "tasks.tasklabelrelation",
+  "pk": 17,
+  "fields": {
+    "task": 10,
+    "label": 2
+  }
+},
+{
+  "model": "tasks.tasklabelrelation",
+  "pk": 18,
+  "fields": {
+    "task": 10,
+    "label": 11
+  }
+},
+{
+  "model": "tasks.tasklabelrelation",
+  "pk": 20,
+  "fields": {
+    "task": 11,
+    "label": 2
+  }
+},
+{
+  "model": "tasks.tasklabelrelation",
+  "pk": 21,
+  "fields": {
+    "task": 12,
+    "label": 2
+  }
+},
+{
+  "model": "tasks.tasklabelrelation",
+  "pk": 22,
+  "fields": {
+    "task": 12,
+    "label": 11
+  }
+},
+{
+  "model": "tasks.tasklabelrelation",
+  "pk": 24,
+  "fields": {
+    "task": 14,
+    "label": 1
+  }
+}
+]

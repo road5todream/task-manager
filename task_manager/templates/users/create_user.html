@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load bootstrap4 %}
+
+{% block content %}
+<form method="POST">
+<div class="container col-7">
+  <br>
+  <h3>{% trans 'Registration' %}</h3>
+  <div class="form-group">
+    <br>
+    {% csrf_token %}
+    {% bootstrap_form form %}
+  </div>
+  <button type="submit" class="btn btn-outline-success">{% trans 'Register' %}</button>
+</div>
+</form>
+{% endblock %}

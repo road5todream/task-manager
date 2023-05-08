@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load bootstrap4 %}
+
+
+{% block content %}
+<div class="container col-7">
+    <br>
+    <h2>{% trans 'Task change' %}</h2>
+<div class="form-group">
+
+<form method="post">
+{% csrf_token %}
+{% bootstrap_form form %}
+
+</div>
+<button type="submit" class="btn btn-outline-success">{% trans 'Change' %}</button>
+</div>
+</form>
+
+{% endblock %}

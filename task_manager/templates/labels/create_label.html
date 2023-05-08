@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load bootstrap4 %}
+
+{% block content %}
+<div class="container col-7 ">
+    <br>
+    <h3 class="mb-3 text-left">{% trans 'Create label' %}</h3>
+    <form method="post">
+{% csrf_token %}
+{% bootstrap_form form %}
+
+<button type="submit" class="btn btn-outline-success">{% trans 'Create' %}</button>
+</form>
+{% endblock %}
