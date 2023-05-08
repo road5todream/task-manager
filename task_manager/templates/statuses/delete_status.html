@@ -7,7 +7,7 @@
 {% trans 'Deleting status' %}
       </h1>
 <p>{% trans 'Are you sure you want to delete' %} {{ status.name }}?</p>
-<form action="{% url 'delete_status' status.id %}" method="post">
+<form action="{% url 'delete_status' statuses.id %}" method="post">
   {% csrf_token %}
   <input type="hidden">
   <input class="btn btn-danger" type="submit" value="{% trans 'Yes, delete' %}">
