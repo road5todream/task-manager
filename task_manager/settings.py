@@ -10,12 +10,15 @@ DATABASE_CONFIG = dj_database_url.config(default=os.getenv('DATABASE_URL'))
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = 'asadwrr23werfwfswefwf'
 
-DEBUG = os.getenv('DEBUG', False)
+DEBUG = True
 
 ALLOWED_HOSTS = [
-    '*',
+    '127.0.0.1',
+    '0.0.0.0',
+    'webserver',
+    'web-production-13b7.up.railway.app',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
@@ -37,6 +40,8 @@ INSTALLED_APPS = [
     'task_manager.statuses',
     'task_manager.labels',
     'bootstrap4',
+    'crispy_forms',
+    'crispy_bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -81,7 +86,10 @@ WSGI_APPLICATION = 'task_manager.wsgi.application'
 
 
 DATABASES = {
-    'default': DATABASE_CONFIG
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 
@@ -126,3 +134,6 @@ LOGIN_URL = '/login/'
 AUTH_USER_MODEL = 'users.Users'
 
 rollbar.init(**ROLLBAR)
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

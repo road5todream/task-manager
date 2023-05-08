@@ -1,18 +1,20 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 {% load i18n %}
-{% load bootstrap4 %}
-
 {% block content %}
-<form method="POST">
-<div class="container col-7">
-  <br>
-  <h3>{% trans 'Registration' %}</h3>
+<div class="container wrapper flex-grow-1">
+      <h1 class="my-4">
+{% trans 'Registration' %}
+      </h1>
+<form action="{% url 'create_user' %}" method="post">
+  {% csrf_token %}
+  <input type="hidden">
   <div class="form-group">
-    <br>
-    {% csrf_token %}
-    {% bootstrap_form form %}
+    {{ form|crispy }}
   </div>
-  <button type="submit" class="btn btn-outline-success">{% trans 'Register' %}</button>
-</div>
+  <div class="form-group">
+    <input class="btn btn-primary" type="submit" value="{% trans 'Register' %}">
+  </div>
 </form>
+    </div>
 {% endblock %}

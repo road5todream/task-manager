@@ -1,17 +1,16 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 {% load i18n %}
-{% load bootstrap4 %}
-
-
 {% block content %}
-<div class="container col-7">
-  <br>
-<h1>{% trans 'Deleting a status' %}</h1>
-
-<form method="post">
-    {% csrf_token %}
-    <p>{% trans 'Are you sure you want to remove' %} {{ statuses.name }}?</p>
-    <button type="submit" class="btn btn-danger">{% trans 'Yes, delete' %}</button>
+<div class="container wrapper flex-grow-1">
+      <h1 class="my-4">
+{% trans 'Deleting status' %}
+      </h1>
+<p>{% trans 'Are you sure you want to delete' %} {{ status.name }}?</p>
+<form action="{% url 'delete_status' status.id %}" method="post">
+  {% csrf_token %}
+  <input type="hidden">
+  <input class="btn btn-danger" type="submit" value="{% trans 'Yes, delete' %}">
 </form>
-</div>
+    </div>
 {% endblock %}
