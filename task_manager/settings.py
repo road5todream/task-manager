@@ -15,10 +15,7 @@ SECRET_KEY = 'asadwrr23werfwfswefwf'
 DEBUG = os.getenv('DEBUG', 'False')
 
 ALLOWED_HOSTS = [
-    '127.0.0.1',
-    '0.0.0.0',
-    'webserver',
-    'web-production-fc16.up.railway.app',
+    'task-manager-production-fc16.up.railway.app'
 ]
 
 CSRF_TRUSTED_ORIGINS = [
