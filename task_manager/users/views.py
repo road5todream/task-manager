@@ -13,9 +13,7 @@ class UsersView(ListView):
     model = Users
 
 
-class RegisterUser(SuccessMessageMixin,
-                   CreateView
-                   ):
+class RegisterUser(SuccessMessageMixin, CreateView):
 
     model = Users
     form_class = UserRegistrationForm
@@ -24,11 +22,9 @@ class RegisterUser(SuccessMessageMixin,
     success_message = FlashMessages.REGISTER_SUCCESS.value
 
 
-class UpdateUserView(UserChangeAccessMixin,
-                     LoginRequiredMixin,
-                     SuccessMessageMixin,
-                     UpdateView,
-                     ):
+class UpdateUserView(UserChangeAccessMixin, LoginRequiredMixin,
+                     SuccessMessageMixin, UpdateView,):
+
     model = Users
     form_class = UserRegistrationForm
     template_name = 'users/update_user.html'
@@ -36,10 +32,9 @@ class UpdateUserView(UserChangeAccessMixin,
     success_message = FlashMessages.USER_SUCCESSFULLY_CHANGED.value
 
 
-class DeleteUserView(UserDeleteAccessMixin,
-                     LoginRequiredMixin,
-                     DeleteView
-                     ):
+class DeleteUserView(UserDeleteAccessMixin, LoginRequiredMixin,
+                     DeleteView):
+
     model = Users
     success_url = reverse_lazy('users')
     template_name = 'users/delete_user.html'

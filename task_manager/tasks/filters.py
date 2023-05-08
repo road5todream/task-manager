@@ -19,33 +19,20 @@ class TaskFilter(django_filters.FilterSet):
 
     status = django_filters.ModelChoiceFilter(
         queryset=Statuses.objects.all(),
-        widget=forms.Select(attrs={
-            'class': 'form-select',
-        }))
+        widget=forms.Select(attrs={'class': 'form-select'}))
     executor = django_filters.ModelChoiceFilter(
         queryset=Users.objects.all(),
-        widget=forms.Select(attrs={
-            'class': 'form-select',
-        }))
+        widget=forms.Select(attrs={'class': 'form-select'}))
     labels = django_filters.ModelChoiceFilter(
         label=_('Label'),
         queryset=Labels.objects.all(),
-        widget=forms.Select(attrs={
-            'class': 'form-select',
-        })
-    )
+        widget=forms.Select(attrs={'class': 'form-select'}))
     self_task = django_filters.BooleanFilter(
         label=_('Only their tasks'),
         method='self_widget_filter',
-        widget=forms.CheckboxInput(attrs={
-            'class': 'form-check-input',
-        }))
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}))
 
     class Meta:
 
         model = Tasks
-        fields = (
-            'status',
-            'executor',
-            'labels',
-        )
+        fields = ('status', 'executor', 'labels',)

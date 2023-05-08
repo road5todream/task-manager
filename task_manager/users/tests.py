@@ -22,11 +22,11 @@ class CrudUsersTestCase(TestCase):
         self.user1 = Users.objects.get(pk=1)
         self.user3 = Users.objects.get(pk=3)
         self.user18 = Users.objects.get(pk=18)
-        self.data_for_form = {'username': 'Aleks',
+        self.data_for_form = {'username': 'Nick',
                               'first_name': 'name',
                               'last_name': 'lastname',
-                              'password1': 'SecretPass112',
-                              'password2': 'SecretPass112',
+                              'password1': 'Dededsdsfsdf123',
+                              'password2': 'Dededsdsfsdf123',
                               }
 
     def test_login_page(self):
@@ -37,7 +37,6 @@ class CrudUsersTestCase(TestCase):
         register = reverse('create_user')
         post_request = self.client.post(register, self.data_for_form,
                                         follow=True)
-        # loguru.logger.info(request.context)
         self.assertEqual(post_request.status_code, self.success_code)
         self.assertRedirects(post_request, self.login)
         self.assertEqual(len(Users.objects.all()), 7)
@@ -50,11 +49,11 @@ class CrudUsersTestCase(TestCase):
         url_path = reverse('update_user', args=[3])
         self.client.force_login(self.user3)
         response = self.client.get(url_path, follow=True)
-        self.assertEqual(str(response.context['user'].username), 'seeu359')
+        self.assertEqual(str(response.context['user'].username), 'road5todream')
         self.assertEqual(response.status_code, self.success_code)
         post_request = self.client.post(url_path, self.data_for_form)
         self.assertRedirects(post_request, self.users)
-        self.assertTrue(Users.objects.get(pk=3).username == 'Aleks')
+        self.assertTrue(Users.objects.get(pk=3).username == 'Nick')
 
     def test_update_not_myself_user(self):
         url_path = reverse('update_user', args=[2])
