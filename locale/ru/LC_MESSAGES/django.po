@@ -161,7 +161,7 @@ msgstr "Выйти"
 
 #: task_manager/templates/base.html:46 task_manager/templates/login.html:29
 msgid "Login"
-msgstr "Войти"
+msgstr " Вход"
 
 #: task_manager/templates/base.html:47
 #: task_manager/templates/users/create_user.html:7
@@ -251,7 +251,7 @@ msgstr "Изменить"
 
 #: task_manager/templates/login.html:34
 msgid "Log on"
-msgstr "Вход"
+msgstr "Войти"
 
 #: task_manager/templates/tasks/tasks_list.html:9
 msgid "Create task"
