@@ -44,7 +44,6 @@ flake8==6.0.0
 Flask==2.2.2
 fonttools==4.37.3
 gunicorn==20.1.0
-hexlet-code @ file:///Users/nikolajkovtun/task-manager
 html5lib==1.1
 idna==3.3
 iniconfig==1.1.1
