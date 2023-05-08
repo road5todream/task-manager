@@ -44,6 +44,7 @@ flake8==6.0.0
 Flask==2.2.2
 fonttools==4.37.3
 gunicorn==20.1.0
+-e git+https://github.com/road5todream/task-manager.git@ghp_GaMyeBVkJ31IEneV1NQ4oRj2GwlAhn3MkSM=hexlet_code
 html5lib==1.1
 idna==3.3
 iniconfig==1.1.1
