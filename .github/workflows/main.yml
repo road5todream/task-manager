@@ -25,6 +25,7 @@ jobs:
           DEBUG: True
         run: |
             make test
+            make lint
       - name: Test & publish code coverage
         uses: paambaati/codeclimate-action@v2.7.4
         env:
