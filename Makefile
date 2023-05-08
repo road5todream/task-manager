@@ -27,8 +27,9 @@ install:
 	poetry build
 
 test-coverage:
-	poetry run coverage run ./manage.py test && coverage report
-	poetry run coverage xml
+	@poetry run coverage run manage.py test
+	@poetry run coverage xml
+	@poetry run coverage report
 
 dump:
 	./manage.py dumpdata tasks --indent 2 > task_manager/fixtures/tasks.json
